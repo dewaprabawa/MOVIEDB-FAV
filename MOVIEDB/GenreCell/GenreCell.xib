@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GenreCell" customModule="MOVIEDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="215"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="337" height="215"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-Gv-aUg">
+                        <rect key="frame" x="0.0" y="0.0" width="337" height="215"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8w-Bx-EHc">
+                                <rect key="frame" x="12" y="95" width="313" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="2N7-vA-cYG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="x8w-Bx-EHc" firstAttribute="centerX" secondItem="jmf-Gv-aUg" secondAttribute="centerX" id="7z7-x1-4uO"/>
+                            <constraint firstAttribute="trailing" secondItem="x8w-Bx-EHc" secondAttribute="trailing" constant="12" id="94B-qe-Kwd"/>
+                            <constraint firstItem="x8w-Bx-EHc" firstAttribute="leading" secondItem="jmf-Gv-aUg" secondAttribute="leading" constant="12" id="APg-Gc-UMy"/>
+                            <constraint firstItem="x8w-Bx-EHc" firstAttribute="centerY" secondItem="jmf-Gv-aUg" secondAttribute="centerY" id="POR-Kg-urj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="jmf-Gv-aUg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6O4-Q6-YM0"/>
+                <constraint firstItem="jmf-Gv-aUg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7mF-pc-tTA"/>
+                <constraint firstAttribute="bottom" secondItem="jmf-Gv-aUg" secondAttribute="bottom" id="SHT-O7-7ao"/>
+                <constraint firstAttribute="trailing" secondItem="jmf-Gv-aUg" secondAttribute="trailing" id="Uop-EY-Gr1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="337" height="215"/>
+            <connections>
+                <outlet property="genreLabel" destination="x8w-Bx-EHc" id="meB-J0-GEf"/>
+                <outlet property="genreViewContainer" destination="jmf-Gv-aUg" id="xto-dJ-RWw"/>
+            </connections>
+            <point key="canvasLocation" x="147.10144927536234" y="186.49553571428569"/>
+        </collectionViewCell>
+    </objects>
+</document>
