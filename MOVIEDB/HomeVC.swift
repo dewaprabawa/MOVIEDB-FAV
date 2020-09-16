@@ -251,7 +251,7 @@ extension HomeVC {
             }
             
             if sectionType is GenreListSection {
-                return self.generateTopRated(isWide: isWideView)
+                return self.generateGenreList(isWide: isWideView)
             }
               
             return nil
@@ -337,6 +337,34 @@ extension HomeVC {
 
       return section
     }
+    
+    func generateGenreList(isWide:Bool) -> NSCollectionLayoutSection {
+          
+           let itemSize = NSCollectionLayoutSize(
+               widthDimension: .fractionalWidth(1.0),
+               heightDimension: .fractionalWidth(1.0))
+             let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+             let groupSize = NSCollectionLayoutSize(
+               widthDimension: .absolute(140),
+               heightDimension: .absolute(106))
+             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
+             group.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+             let headerSize = NSCollectionLayoutSize(
+               widthDimension: .fractionalWidth(1.0),
+               heightDimension: .estimated(44))
+             let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+               layoutSize: headerSize,
+               elementKind:  HomeVC.sectionHeaderElementKind,
+               alignment: .top)
+
+             let section = NSCollectionLayoutSection(group: group)
+             section.boundarySupplementaryItems = [sectionHeader]
+             section.orthogonalScrollingBehavior = .groupPaging
+
+             return section
+      }
     
 }
 
