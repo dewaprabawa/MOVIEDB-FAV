@@ -73,7 +73,7 @@ extension HomeVC {
         group.enter()
         queueLoader.async(group:group) {
             NetworkingClient.getGenreList { (genre) in
-                sections.append(Section(headerItem: GenreListSection(items: genre.genres), sectionItems: genre.genres))
+                sections.append(Section(headerItem: GenreListSection(items: genre.genres), sectionItems:genre.genres))
                 group.leave()
             }
         }
@@ -100,7 +100,7 @@ extension HomeVC {
             snapshot.appendItems($0.sectionItems)
         }
 
-        dataSource?.apply(snapshot, animatingDifferences: true)
+        dataSource?.apply(snapshot)
     }
     
 }
@@ -237,6 +237,7 @@ extension HomeVC {
              let isWideView = env.container.effectiveContentSize.width > 500
        
             let sectionType = self.dataSource?.snapshot().sectionIdentifiers[sectionIndex].headerItem
+            
             if sectionType is NowPlayingSection {
                return self.generateNowPlayingLayout(isWide: isWideView)
             }
@@ -246,7 +247,7 @@ extension HomeVC {
             }
             
             if sectionType is PopularMovieSection {
-                return self.generateNowPlayingLayout(isWide: isWideView)
+                return self.generateLatestPlayingLayout(isWide: isWideView)
             }
             
             if sectionType is GenreListSection {
