@@ -27,4 +27,4 @@ Modern Collection Views with Compositional Layouts
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 # Preview 
 
-![](https://github.com/dewaprabawa/IOSfundamentalSubmission/blob/master/1.png) 
+![](https://github.com/dewaprabawa/MOVIEDB-FAV/blob/master/1.png) 
