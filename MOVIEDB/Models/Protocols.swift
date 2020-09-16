@@ -11,9 +11,10 @@ import Foundation
 
 
 protocol SectionAdaptable {
+    
     associatedtype T
     
-    var items:[T]?{get }
+    var items:[T]? {get}
     
     var sectionTitle:String{get set}
 

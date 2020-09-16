@@ -38,14 +38,5 @@ struct Genre:Codable, Hashable{
         case id = "id"
         case name = "name"
     }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(identifier)
-    }
-    
-    static func == (lhs: Genre, rhs: Genre) -> Bool {
-        return lhs.identifier == rhs.identifier
-    }
-    
-    private var identifier = UUID()
+
 }

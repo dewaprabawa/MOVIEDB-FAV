@@ -79,9 +79,11 @@ extension HomeVC {
         }
         
         
-        group.notify(queue: .main){
+        group.notify(queue: .global(qos: .userInitiated)){
             self.addItem(with: sections)
-            self.movieCollectionView.reloadData()
+            DispatchQueue.main.async {
+                self.movieCollectionView.reloadData()
+            }
         }
 
     }
