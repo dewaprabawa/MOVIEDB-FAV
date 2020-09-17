@@ -79,7 +79,7 @@ extension HomeVC {
         }
         
         
-        group.notify(queue: .global(qos: .userInitiated)){
+        group.notify(queue: .global(qos: .background)){
             self.addItem(with: sections)
             DispatchQueue.main.async {
                 self.movieCollectionView.reloadData()
@@ -187,21 +187,7 @@ extension HomeVC {
                 let movieListVC = MovieListVC()
                 
                 let sectionType = self.dataSource?.snapshot().sectionIdentifiers[indexPath.section].headerItem
-                /*
-                switch (sectionType) {
-                    
-                case .nowPlaying is NowPlayingSection:
-                    movieListVC.type = .nowPlaying
-                    movieListVC.cellTitle = sectionType.rawValue
-                case .topRated:
-                    movieListVC.type = .topRated
-                    movieListVC.cellTitle = sectionType.rawValue
-                case .popularMovie:
-                    movieListVC.type = .popular
-                    movieListVC.cellTitle = sectionType.rawValue
-                case .genreList:
-                    break
-                }*/
+           
                 
                 if let header = sectionType as? NowPlayingSection{
                     movieListVC.type = .nowPlaying
@@ -372,7 +358,14 @@ extension HomeVC {
 
 extension HomeVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-     
+        if indexPath.section == 4 {
+            let sectionType = self.dataSource?.snapshot().sectionIdentifiers[indexPath.section].headerItem
+            if let header = sectionType as? GenreListSection {
+                let vc = MovieListVC()
+                vc.cellTitle = header.sectionTitle
+            }
+        }
+        
         let vc = DetailVC()
         present(vc, animated: true, completion: nil)
     }

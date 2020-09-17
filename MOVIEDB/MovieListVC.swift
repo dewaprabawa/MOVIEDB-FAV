@@ -113,13 +113,12 @@ extension MovieListVC {
              self.tableViewIndicator.startAnimating()
             NetworkingClient.getMovieList(page, type: type) { (data) in
                 self.movie = data
-
-                
                 self.data.append(contentsOf: data.results)
                 
-
-                self.tableView.reloadData()
-                self.tableViewIndicator.stopAnimating()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableViewIndicator.stopAnimating()
+                }
             }
     }
 }
